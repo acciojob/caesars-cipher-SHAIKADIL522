@@ -7,17 +7,10 @@ const lookup = {
 };
 
 function rot13(encodedStr) {
-  let decodedArr = [];
+  let decodedArr = []; // Your Result goes here
   // Only change code below this line
   for (const ch of encodedStr) {
-    const upper = ch.toUpperCase();
-    if (lookup[upper] && upper !== ch) {
-      // lowercase letter: map, then restore lowercase
-      decodedArr.push(lookup[upper].toLowerCase());
-    } else {
-      // uppercase letter or non-letter: map or pass through
-      decodedArr.push(lookup[ch] ?? ch);
-    }
+    decodedArr.push(lookup[ch.toUpperCase()] ?? ch);
   }
   return decodedArr.join("");
 }
